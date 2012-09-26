@@ -16,13 +16,13 @@
 	} elseif ( is_single() ) {
 		wp_title('');
 	} else {
-		echo wp_title(''); echo ' | '; bloginfo( 'name' );
+		bloginfo( 'name' );
 	} ?></title>
 	
 	<meta name="description" content="<?php wp_title(''); echo ' | '; bloginfo( 'description' ); ?>" />
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
-	<meta name="viewport" content="width=device-width; initial-scale=1"/><?php /* Add "maximum-scale=1" to fix the Mobile Safari auto-zoom bug on orientation changes, but keep in mind that it will disable user-zooming completely. Bad for accessibility. */ ?>
+	<!--<meta name="viewport" content="width=device-width; initial-scale=1"/>--><?php /* Add "maximum-scale=1" to fix the Mobile Safari auto-zoom bug on orientation changes, but keep in mind that it will disable user-zooming completely. Bad for accessibility. */ ?>
 	
 	<link rel="icon" href="<?php bloginfo('template_url'); ?>/favicon.ico" type="image/x-icon" />
 	
@@ -38,7 +38,11 @@
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />
 	<link rel="alternate" type="application/atom+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'atom_url' ); ?>" />
 
-	<?php wp_enqueue_script("jquery"); /* Loads jQuery if it hasn't been loaded already */ ?>
+	<?php 
+	wp_deregister_script('jquery'); 
+	wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'); 
+	wp_enqueue_script('jquery'); 
+	?>
 
 	<!--[if lt IE 9]>
 		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

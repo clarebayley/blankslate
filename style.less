@@ -8,7 +8,7 @@ Version: 1.0
 */
 
 .rounded-corners (@radius: 5px) {border-radius: @radius; -webkit-border-radius: @radius;-moz-border-radius: @radius;}
-.box-shadow (@h, @v, @b, @c){box-shadow: @h + 0px @v + 0px @b + 0px @c;-webkit-box-shadow: @h + 0px @v + 0px @b + 0px @c;-moz-box-shadow:    @h + 0px @v + 0px @b + 0px @c;}
+.box-shadow (@h-offset: 0, @v-offset: 0, @blur: 3px, @color: #666){box-shadow: @arguments;-webkit-box-shadow: @arguments;-moz-box-shadow: @arguments;}
 .b{border: 1px solid #000;}
 a{text-decoration: none;color: inherit;}
 .clear{float: none;clear: both;}
@@ -27,15 +27,28 @@ a{
 	}
 }
 
+h1{
+	
+}
+
+h2{
+	
+}
+
 .container{
-.b;
+	.b;
 	width: @contentWidth;
 	margin: auto;
 }
 
 #header{
-	li{
+	
+	ul{
 		float: right;
+	}
+	
+	li{
+		float: left;
 		&.current_page_item{
 			a{
 			}
@@ -44,12 +57,6 @@ a{
 }
 
 .post{
-	
-	h1{
-	}
-	
-	h2{
-	}
 	
 	a{
 		&:hover{
@@ -65,6 +72,10 @@ a{
 }
 
 #footer{
+	
+	ul{
+		float: left;
+	}
 	
 	li{
 		float: left;
